@@ -1,0 +1,707 @@
+local version_ = 1.25
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Princess Tycoon Script By Virmality", "Midnight")
+
+local Inicio = Window:NewTab("Start")
+
+local InicioSection = Inicio:NewSection("Start")
+
+InicioSection:NewLabel("Welcome to my script"..game.Players.LocalPlayer.Name)
+InicioSection:NewLabel("Made By Virmality")
+InicioSection:NewLabel("Version: "..tostring(version_))
+
+
+
+local Tab = Window:NewTab("Teleportation")
+
+local Section = Tab:NewSection("Teleportation ")
+
+Section:NewButton("TP to Cotton", "This will teleport you to Team Cotton", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-76.19377899169922, 33.680973052978516, -165.69773864746094)
+end)
+
+Section:NewButton("TP to Moon", "This will teleport you to Team Moon", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.24481964111328, 33.680965423583984, -204.0719451904297)
+end)
+
+Section:NewButton("TP to Glitter", "This will teleport You to Team Glitter", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(148.8028106689453, 33.680965423583984, -160.9187469482422)
+end)
+
+Section:NewButton("TP to Spirit", "This will teleport You to Team Spirit", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(216.26258850097656, 33.68096160888672, -66.0811538696289)
+end)
+
+Section:NewButton("TP to Friday", "This will teleport you to Team Friday", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(213.1183319091797, 33.680973052978516, 48.15812301635742)
+end)
+
+Section:NewButton("TP a Sunshine", "Esto Te teleport al Team Sunshine", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150.94972229003906, 33.680965423583984, 143.25022888183594)
+end)
+
+Section:NewButton("TP to Jade", "This will teleport you to Team Jade", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(34.88810729980469, 33.680965423583984, 179.42184448242188)
+end)
+
+Section:NewButton("TP to Rose", "This will teleport you to Team Rose", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-71.25493621826172, 33.680973052978516, 143.2908935546875)
+end)
+
+Section:NewButton("TP to Spring", "This will teleport you to Team Spring", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-144.94363403320312, 33.680973052978516, 47.509700775146484)
+end)
+
+Section:NewButton("TP to Angel", "This will teleport you to Team Angel", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-143.21835327148438, 33.680965423583984, -68.80194091796875)
+end)
+
+Section:NewButton("TP to Start", "This will teleport you to the start of the game", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(34.78898620605469, 33.5565299987793, -10.302833557128906)
+end)
+
+Section:NewButton("TP to Safe Zone", "This will teleport you to the Safe Zone", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-323.6188049316406, 90.6793212890625, -402.58062744140625)
+end)
+
+Section:NewButton("TP to Safe Zone 2", "This will teleport you to Safe Zone 2", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(355.5648498535156, 34.02907943725586, -269.72894287109375)
+end)
+
+local KillPlayersTab = Window:NewTab("Kill/eliminate Players")
+
+local KillPlayers = KillPlayersTab:NewSection("kill/eliminate players")
+
+KillPlayers:NewLabel("You Will Need Some Kill Tool For This Script")
+
+for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+	if player then
+		if player.Name == game.Players.LocalPlayer.Name then
+			KillPlayers:NewButton("Kill Myself", "Telestaport Yourself", function()
+				game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+			end)
+		else
+			KillPlayers:NewButton("Will kill "..player.Name, "Player is teleported and then killed to"..player.Name, function()
+				for i = 1, 25 do
+					game:GetService("Players").LocalPlayer.Character:MoveTo(player.Character.HumanoidRootPart.Position)
+					wait(0.01)
+				end
+			end)
+		end
+	end	
+end
+
+KillPlayers:NewButton("Kill All", "Teleports The Player Then Kills Them All", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-88.78067779541016, 33.806034088134766, -187.8166046142578)
+	wait(0.5)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(365.74261474609375, 33.5565299987793, -280.58673095703125)
+	wait(0.4)
+	wait(0.5)
+	for i = 1, 15 do
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(0, math.rad(10), 0)
+		for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+			player.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+			wait(0.01)
+
+		end
+	end
+end)
+
+local ScriptsTab = Window:NewTab("Scripts")
+
+local SectionScriptsTab = ScriptsTab:NewSection("Scripts to Inject")
+
+SectionScriptsTab:NewButton("Noclip", "This Will Make You Have NoClip", function()
+	local Noclip = nil
+	local Clip = nil
+
+	function noclip()
+		Clip = false
+		local function Nocl()
+			if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+				for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+					if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+						v.CanCollide = false
+					end
+				end
+			end
+			wait(0.21) -- basic optimization
+		end
+		Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+	end
+
+	function clip()
+		if Noclip then Noclip:Disconnect() end
+		Clip = true
+	end
+
+	noclip() -- to toggle noclip() and clip()
+end)
+
+SectionScriptsTab:NewButton("Infinite Jump", "This Will Make You Have Infinite Jump", function()
+	local InfiniteJumpEnabled = true
+	game:GetService("UserInputService").JumpRequest:connect(function()
+		if InfiniteJumpEnabled then
+			game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+		end
+	end)
+end)
+
+SectionScriptsTab:NewToggle("MegaPower", "This will make you have powers yes and no", function(state)
+	if state then
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+		game.Players.LocalPlayer.Character.Humanoid.MaxHealth = math.huge
+		game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
+	else
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+		game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 100
+		game.Players.LocalPlayer.Character.Humanoid.Health = 100
+	end
+end)
+
+SectionScriptsTab:NewToggle("Esp", "Activa Rayos X", function(state)
+	if state then	-- Recorre la lista de jugadores y crea el highlight para cada uno de ellos
+		for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+			-- Crea un objeto Part para el highlight
+			local highlight = Instance.new("Highlight")
+			highlight.FillColor = Color3.new(1, 0, 0.0156863)
+			highlight.OutlineColor = Color3.new(1, 1, 1)
+			highlight.Parent = player.Character
+			highlight.FillTransparency = 0
+			highlight.OutlineTransparency = 0
+			highlight.Name = "ESP"
+		end
+	else
+		for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+			player.Character:FindFirstChild("ESP"):Destroy()
+		end
+	end
+end)
+
+SectionScriptsTab:NewButton("Press E to fly", "This will make you able to fly", function()
+	repeat wait() 
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
+	local mouse = game.Players.LocalPlayer:GetMouse() 
+	repeat wait() until mouse
+	local plr = game.Players.LocalPlayer 
+	local torso = plr.Character.HumanoidRootPart 
+	local flying = true
+	local deb = true 
+	local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+	local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+	local maxspeed = 50 
+	local speed = 0 
+
+	function Fly() 
+		local bg = Instance.new("BodyGyro", torso) 
+		bg.P = 9e4 
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+		bg.cframe = torso.CFrame 
+		local bv = Instance.new("BodyVelocity", torso) 
+		bv.velocity = Vector3.new(0,0.1,0) 
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+		repeat wait() 
+			plr.Character.Humanoid.PlatformStand = true 
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+				speed = speed+.5+(speed/maxspeed) 
+				if speed > maxspeed then 
+					speed = maxspeed 
+				end 
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
+				speed = speed-1 
+				if speed < 0 then 
+					speed = 0 
+				end 
+			end 
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+			else 
+				bv.velocity = Vector3.new(0,0.1,0) 
+			end 
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) 
+		until not flying 
+		ctrl = {f = 0, b = 0, l = 0, r = 0} 
+		lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+		speed = 0 
+		bg:Destroy() 
+		bv:Destroy() 
+		plr.Character.Humanoid.PlatformStand = false 
+	end 
+	mouse.KeyDown:connect(function(key) 
+		if key:lower() == "e" then 
+			if flying then flying = false 
+			else 
+				flying = true 
+				Fly() 
+			end 
+		elseif key:lower() == "w" then 
+			ctrl.f = 1 
+		elseif key:lower() == "s" then 
+			ctrl.b = -1 
+		elseif key:lower() == "a" then 
+			ctrl.l = -1 
+		elseif key:lower() == "d" then 
+			ctrl.r = 1 
+		end 
+	end) 
+	mouse.KeyUp:connect(function(key) 
+		if key:lower() == "w" then 
+			ctrl.f = 0 
+		elseif key:lower() == "s" then 
+			ctrl.b = 0 
+		elseif key:lower() == "a" then 
+			ctrl.l = 0 
+		elseif key:lower() == "d" then 
+			ctrl.r = 0 
+		end 
+	end)
+	Fly()
+end)
+
+SectionScriptsTab:NewButton("God mode", "godmode", function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/bbyuynM1'),true))()
+end)
+
+
+local objectos = Window:NewTab("Objects")
+
+
+local ObjectosSection = objectos:NewSection("Get Primary Items From Every Tycoon")
+
+ObjectosSection:NewButton("Get Objects From Cotton", "This Function Will Get Objects From Cotton", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-80.80411529541016, 33.805233001708984, -193.3030548095703)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-88.78067779541016, 33.806034088134766, -187.8166046142578)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Angel", "This Function Will Get Objects From Angel", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-168.3234405517578, 33.80595779418945, -79.29808807373047)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-164.8565673828125, 33.80517578125, -89.87891387939453)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+
+ObjectosSection:NewButton("Get Objects From The Moon", "This Function Will Get The Objects From The Moon", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.14507293701172, 33.80562973022461, -226.0789794921875)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(49.13541030883789, 33.80329895019531, -226.07005310058594)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Jade", "This Function Will Get Objects From Jade", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(34.12247085571289, 33.80562973022461, 204.96148681640625)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(22.904008865356445, 33.80562973022461, 204.96438598632812)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Spring", "This Function Will Get Objects From Spring", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-169.57586669921875, 33.806461334228516, 55.15626525878906)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-173.47068786621094, 33.804935455322266, 43.103179931640625)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Friday", "This Function Will Get The Objects From Friday", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(240.07040405273438, 33.80595016479492, 58.4510498046875)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(236.53965759277344, 33.80514907836914, 69.3446044921875)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From The Sun", "This Function Will Get The Objects From The Sun", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(164.6578826904297, 33.806053161621094, 165.21035766601562)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(156.59945678710938, 33.805233001708984, 171.30235290527344)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Rose", "This Function Will Get Objects From Rose", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-91.96308898925781, 33.9927978515625, 162.009765625)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-98.94722747802734, 33.8050651550293, 156.9962921142578)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Glitter", "This Function Will Get Objects From Glitter", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(165.55381774902344, 33.80607223510742, -182.4412384033203)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(172.95291137695312, 33.8050651550293, -176.92462158203125)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+ObjectosSection:NewButton("Get Objects From Spirit", "This Function Will Get Objects From Spirit", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(242.02792358398438, 33.80622482299805, -73.47554779052734)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(244.9513397216797, 33.80504608154297, -64.12153625488281)
+	wait(0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.68984031677246, 33.5565299987793, -21.844371795654297)
+end)
+
+local varios = Window:NewTab("Several")
+
+
+local variosSection = varios:NewSection("Several")
+variosSection:NewLabel("Change Humanoid Functions")
+
+variosSection:NewSlider("Speed", "Increase Or Decrease Speed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+variosSection:NewSlider("Jump Power", "Increase or decrease Jump Power", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+variosSection:NewSlider("Max Life", "Increase Or Decrease Power Of Max Life", 10000, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.Character.Humanoid.MaxHealth = s
+end)
+
+variosSection:NewSlider("Life", "Increase Or decrease Life Power", 10000, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.Character.Humanoid.Health = s
+end)
+
+variosSection:NewSlider("Gravity", "Increase Or Decrease Power Of Gravity", 1000, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Workspace.Gravity = s
+end)
+
+variosSection:NewSlider("Fov", "Increase Or Decrease Power Of Fov", 120, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Workspace.CurrentCamera.FieldOfView = s
+end)
+
+variosSection:NewSlider("Camera Distance", "Increase Or Decrease Camera Distance Power", 100000, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.CameraMaxZoomDistance = s
+end)
+
+variosSection:NewSlider("Hip Height", "Increase Or Decrease Power Of Hip Height", 2048, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.Character.Humanoid.HipHeight = s
+end)
+
+variosSection:NewSlider("Maximum Angle", "Increase Or Decrease Power Of Maximum Slope Angle", 89, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = s
+end)
+variosSection:NewLabel("resets")
+
+variosSection:NewButton("Reset Speed", "Reset Speed", function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+variosSection:NewButton("Restart Jump", "Reset Jump Power", function()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+variosSection:NewButton("Reset Max Life", "Reset Max Life", function()
+	game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 100
+end)
+
+variosSection:NewButton("Reset Life", "Reset Life", function()
+	game.Players.LocalPlayer.Character.Humanoid.Health = 100
+end)
+
+variosSection:NewButton("Reset Fov", "Reset The Fov", function()
+	game.Workspace.CurrentCamera.FieldOfView = 70
+end)
+
+variosSection:NewButton("Reset Fov", "Reset The Fov", function()
+	game.Workspace.CurrentCamera.FieldOfView = 70
+end)
+
+variosSection:NewButton("Reset Distance", "Reset Camera Distance", function()
+	game.Players.LocalPlayer.CameraMaxZoomDistance = 128
+end)
+
+variosSection:NewButton("Reset Gravity", "Reset Gravity", function()
+	game.Workspace.Gravity = 196.2
+end)
+
+variosSection:NewButton("Reset Angle", "Reset Angle", function()
+	game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle = 89
+end)
+
+variosSection:NewButton("Restart Hip", "Restart Hip", function()
+	game.Players.LocalPlayer.Character.Humanoid.HipHeight = 1.996
+end)
+
+
+variosSection:NewLabel("Teleportation to players")
+
+
+for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+	if player then
+		if player.Name == game.Players.LocalPlayer.Name then
+			variosSection:NewButton("Teleport Myself", "Teleport Yourself ", function()
+				game:GetService("Players").LocalPlayer.Character:MoveTo(game.Players.LocalPlayer)
+			end)
+		else
+			variosSection:NewButton("teleport to "..player.Name, "Player is Teleported "..player.Name, function()
+				game:GetService("Players").LocalPlayer.Character:MoveTo(player.Character.HumanoidRootPart.Position)
+			end)
+		end
+	end	
+end
+
+
+
+local AutoFarm = Window:NewTab("AutoFarm")
+
+local FarmSection = AutoFarm:NewSection("Auto Farm")
+
+FarmSection:NewButton("Block Farming", "This Farm is used for money blocks", function()	-- obtener la carpeta donde se encuentran las partes
+	local carpeta = game.Workspace.CrateParent
+
+	-- iterar sobre cada parte dentro de la carpeta
+	for _,parte in pairs(carpeta:GetChildren()) do
+		-- teletransportar la parte al jugador local
+		parte.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	end
+
+end)
+
+
+
+
+
+local Visuales = Window:NewTab("Visuals")
+
+local Sectionvisuales = Visuales:NewSection("Visuals")
+
+Sectionvisuales:NewTextBox("Shouts Visual", "This will make you have fake Shouts and not visible", function(txt)
+	game.Players.LocalPlayer.Shouts.Value = txt
+end)
+
+Sectionvisuales:NewToggle("All Guis", "Enable And Disable Guis", function(state)
+	if state then
+		game.Players.LocalPlayer.PlayerGui["Main Gui"].Enabled = true
+	else
+		game.Players.LocalPlayer.PlayerGui["Main Gui"].Enabled = false
+	end
+end)
+
+Sectionvisuales:NewTextBox("Visual Money", "Fake Money", function(txt)
+game.Players.LocalPlayer.Character.Head.CashAmmount.Frame.TextLabel.Text = "Cash: "..txt
+end)
+
+
+Sectionvisuales:NewTextBox("No Visual Tycoon Alert", "False", function(txt)
+game:GetService("Players").LocalPlayer.PlayerGui.alert.alert.alertText.Text = txt
+end)
+
+local laseres = Window:NewTab("Destruction")
+
+local SectionLaseres = laseres:NewSection("Destruction")
+
+
+SectionLaseres:NewLabel("THIS WILL WORK FOR THE TYCOONS THAT HAVE LASERS")
+
+SectionLaseres:NewButton("Remove lasers from moon", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Moon.PurchasedObjects.Door.Lasers
+	
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+	
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+
+SectionLaseres:NewButton("Remove lasers from Friday", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Friday.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Jade", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Jade.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Cotton", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Cotton.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Angel", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Angel.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Rose", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Rose.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Spirit", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Spirit.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Spring", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Spring.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Remove lasers from Sunshine", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Sunshine.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+
+
+
+
+SectionLaseres:NewButton("Remove lasers from Glitter", "destroy", function()
+	local carpeta =	game.Workspace.Tycoons.Tycoons.Glitter.PurchasedObjects.Door.Lasers
+
+	-- Obtener la lista de objetos dentro de la carpeta
+	local objetos = carpeta:GetChildren()
+
+	for i, objeto in ipairs(objetos) do
+		objeto:Destroy()
+	end
+end)
+
+SectionLaseres:NewButton("Destroy Beam", "Destroy", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.Beam:Destroy()
+end)
+
+
+SectionLaseres:NewButton("Erase Sky", "Erase THE Sky", function()
+	game.Lighting.Sky:Destroy()
+end)
+
+SectionLaseres:NewButton("Delete Tutorial", "Delete The Tutorial", function()
+	game.Players.LocalPlayer.PlayerGui.tutorial:Destroy()
+end)
+
+
+local destrucionplus = Window:NewTab("Destrucion+")
+
+local sectiondestrucionplus = destrucionplus:NewSection("Destrucion+")
+
+sectiondestrucionplus:NewLabel("Workspace")
+-- Función que se ejecutará por cada instancia en el workspace
+local function miFuncion1(instancia)
+	sectiondestrucionplus:NewButton("Delete "..instancia.Name, "Delete the instance", function()
+		instancia:Destroy()
+	end)
+end
+
+-- Obtener todas las instancias dentro del workspace
+local children = game.Workspace:GetChildren()
+
+-- Loop para ejecutar la función para cada instancia
+for i, instancia in ipairs(children) do
+	miFuncion1(instancia)
+end
+
+-- Función que se ejecutará por cada instancia en el workspace
+local function miFuncion2(instancia)
+	sectiondestrucionplus:NewButton("Delete "..instancia.Name, "Delete the instance", function()
+		instancia:Destroy()
+	end)
+end
+
+-- Obtener todas las instancias dentro del workspace
+local children = game.Workspace.Tycoons.Tycoons:GetChildren()
+
+-- Loop para ejecutar la función para cada instancia
+for i, instancia in ipairs(children) do
+	miFuncion2(instancia)
+end
+
+-- Función que se ejecutará por cada instancia en el workspace
+local function miFuncion3(instancia)
+	sectiondestrucionplus:NewButton("Delete "..instancia.Name, "Delete the instance", function()
+		instancia:Destroy()
+	end)
+end
+
+-- Obtener todas las instancias dentro del workspace
+local children = game.Workspace.Map:GetChildren()
+
+-- Loop para ejecutar la función para cada instancia
+for i, instancia in ipairs(children) do
+	miFuncion3(instancia)
+end
+
+-- Función que se ejecutará por cada instancia en el workspace
+local function miFuncion4(instancia)
+	sectiondestrucionplus:NewButton("Delete "..instancia.Name, "Delete the instance", function()
+		instancia:Destroy()
+	end)
+end
+
+-- Obtener todas las instancias dentro del workspace
+local children = game.Players.LocalPlayer.PlayerGui:GetChildren()
+
+-- Loop para ejecutar la función para cada instancia
+for i, instancia in ipairs(children) do
+	miFuncion4(instancia)
+end
+
+
